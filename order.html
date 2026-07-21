@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserve a Pair | Wonder Walks</title>
+    <link rel="stylesheet" href="csslab.css">
+</head>
+<body>
+    <header>
+        <h1>Secure Your Next Step</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="shop.html">Browse Collection</a>
+            <a href="order.html">Reserve a Pair</a>
+            <a href="gallery.html">Gallery</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>In-Store Holds &amp; Pre-Orders</h2>
+        <p>Because premium sizes sell out fast, you can register and place a stock hold on your favorite pair here.</p>
+
+        <!-- Wrapper div so JS can replace the form with the confirmation card -->
+        <div id="form-container">
+            <form id="reservation-form" action="#" method="post" class="form-card" novalidate>
+
+                <fieldset>
+                    <legend>Customer Account &amp; Delivery Info</legend>
+
+                    <label for="username">Full Name:</label>
+                    <input type="text" id="username" name="username" placeholder="e.g. James Kariuki" required>
+
+                    <label for="useremail">Email Address:</label>
+                    <input type="email" id="useremail" name="useremail" placeholder="you@example.com" required>
+
+                    <label for="shoesize">Select UK/US Shoe Size:</label>
+                    <button type="button" id="size-guide-btn">View Size Guide ▼</button>
+
+                    <!-- Size guide panel — toggled by JS -->
+                    <div id="size-guide-panel" class="sg-hidden">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>UK</th>
+                                    <th>US&nbsp;Men</th>
+                                    <th>US&nbsp;Women</th>
+                                    <th>EU</th>
+                                    <th>CM</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>6</td><td>7</td><td>8.5</td><td>39</td><td>24.5</td></tr>
+                                <tr><td>7</td><td>8</td><td>9.5</td><td>41</td><td>25.5</td></tr>
+                                <tr><td>8</td><td>9</td><td>10.5</td><td>42</td><td>26.5</td></tr>
+                                <tr><td>9</td><td>10</td><td>11.5</td><td>43</td><td>27.5</td></tr>
+                                <tr><td>10</td><td>11</td><td>12.5</td><td>44</td><td>28.5</td></tr>
+                                <tr><td>11</td><td>12</td><td>13.5</td><td>46</td><td>29.5</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <select id="shoesize" name="shoesize">
+                        <option value="">— Select a size —</option>
+                        <option value="size6">UK 6 / US 7</option>
+                        <option value="size7">UK 7 / US 8</option>
+                        <option value="size8">UK 8 / US 9</option>
+                        <option value="size9">UK 9 / US 10</option>
+                        <option value="size10">UK 10 / US 11</option>
+                        <option value="size11">UK 11 / US 12</option>
+                    </select>
+                </fieldset>
+
+                <!-- id used by JS to attach radio-group error -->
+                <fieldset id="model-fieldset">
+                    <legend>Model Preferences</legend>
+                    <p>Which design variant are you registering for?</p>
+
+                    <input type="radio" id="orig" name="line" value="originals">
+                    <label for="orig">Standard Suede Archive Edition (Models 1–7)</label><br>
+
+                    <input type="radio" id="redvariant" name="line" value="red">
+                    <label for="redvariant">Limited Edition Crimson Suede</label>
+                </fieldset>
+
+                <label for="specialnotes">Special Sizing Notes or Custom Colour Inquiries:</label>
+                <textarea id="specialnotes" name="specialnotes" rows="4"
+                    placeholder="Let us know if you have wide foot preferences..."></textarea>
+
+                <br>
+                <input type="submit" value="Submit Reservation Request">
+            </form>
+        </div>
+
+        <hr>
+
+        <h3>Our Main Flagship Depot:</h3>
+        <address>
+            Wonder Walks HQ<br>
+            Kenyatta Avenue<br>
+            Nairobi, Kenya<br>
+            Phone: +254 700 000 000
+        </address>
+    </main>
+
+    <footer>
+        <p><a href="index.html">Return to Home</a></p>
+        <!-- JS appends dark mode toggle button here -->
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

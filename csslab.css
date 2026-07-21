@@ -1,0 +1,924 @@
+/* ==========================================================================
+   WONDER WALKS — csslab.css
+   Single external stylesheet for all pages (index, shop, order, gallery)
+   Design language: heritage suede footwear catalog.
+   Stitched-dash motif throughout echoes the moc-stitch seam on a Wallabee.
+   ========================================================================== */
+
+/* ---------- Google Font import ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap');
+
+/* ---------- Design tokens ---------- */
+:root {
+  --cream:      #F2EBE0;   /* page background, suede-cream */
+  --espresso:   #3A2E22;   /* headers, dark text */
+  --tan:        #B5A188;   /* accent / borders */
+  --card:       #E8DFD0;   /* card backgrounds */
+  --brown:      #6B5D4F;   /* secondary text */
+  --crimson:    #A8341F;   /* campaign accent / CTAs */
+  --crimson-dark: #832717;
+  --cream-white:#FBF8F3;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Inter", -apple-system, sans-serif;
+
+  --radius: 6px;
+  --shadow-soft: 0 4px 14px rgba(58, 46, 34, 0.12);
+  --shadow-lift: 0 10px 24px rgba(58, 46, 34, 0.18);
+
+  --stitch: repeating-linear-gradient(
+    to right,
+    var(--tan) 0px,
+    var(--tan) 8px,
+    transparent 8px,
+    transparent 14px
+  );
+}
+
+/* ---------- Reset & base ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--cream);
+  color: var(--espresso);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--crimson);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--crimson-dark);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  color: var(--espresso);
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+h1 { font-size: 2.4rem; }
+h2 { font-size: 1.8rem; margin-bottom: 0.6rem; }
+h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+
+p { margin-bottom: 1rem; color: var(--brown); }
+
+ul { list-style: none; }
+
+hr {
+  border: none;
+  height: 2px;
+  background: var(--stitch);
+  margin: 2rem 0;
+}
+
+/* ---------- Layout shell ---------- */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+/* ---------- Header ---------- */
+header {
+  background: linear-gradient(180deg, var(--espresso) 0%, #2c2218 100%);
+  color: var(--cream-white);
+  text-align: center;
+  padding: 2.2rem 1.5rem 0;
+}
+
+header h1 {
+  color: var(--cream-white);
+  letter-spacing: 0.03em;
+}
+
+header p {
+  color: var(--tan);
+  font-style: italic;
+  margin-bottom: 1.4rem;
+}
+
+/* ---------- Navbar (Flexbox) ---------- */
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  background-color: var(--espresso);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 0.9rem 1.5rem;
+}
+
+nav a {
+  color: var(--cream-white);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.2rem;
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background-color: var(--crimson);
+  transition: width 0.25s ease;
+}
+
+nav a:hover {
+  color: var(--cream);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* hide the literal " | " separators left in the markup */
+nav {
+  font-size: 0;
+}
+nav a {
+  font-size: 0.95rem;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  background-color: var(--espresso);
+  color: var(--tan);
+  text-align: center;
+  padding: 1.8rem 1.5rem;
+  font-size: 0.9rem;
+  border-top: 4px solid var(--crimson);
+}
+
+footer a {
+  color: var(--cream-white);
+  font-weight: 500;
+}
+
+footer a:hover {
+  color: var(--crimson);
+}
+
+/* ==========================================================================
+   HOME PAGE
+   ========================================================================== */
+
+.hero-spotlight {
+  text-align: center;
+  background-color: var(--card);
+  border-radius: var(--radius);
+  padding: 2.2rem 1.5rem;
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-spotlight::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 6px;
+  background: var(--stitch);
+}
+
+.hero-spotlight img {
+  margin: 1rem auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--tan);
+  padding: 6px;
+  background: var(--cream-white);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.hero-spotlight img:hover {
+  transform: scale(1.04) rotate(-1deg);
+  box-shadow: var(--shadow-lift);
+}
+
+.collections-list li {
+  background-color: var(--cream-white);
+  border-left: 4px solid var(--crimson);
+  padding: 0.9rem 1.2rem;
+  margin-bottom: 0.8rem;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.collections-list li:hover {
+  transform: translateX(6px);
+  box-shadow: var(--shadow-soft);
+}
+
+.collections-list strong {
+  color: var(--espresso);
+  font-family: var(--font-display);
+}
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+
+.btn,
+input[type="submit"] {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--cream-white);
+  background-color: var(--crimson);
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.85rem 1.8rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: var(--shadow-soft);
+}
+
+.btn:hover,
+input[type="submit"]:hover {
+  background-color: var(--crimson-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lift);
+}
+
+.btn:active,
+input[type="submit"]:active {
+  transform: translateY(0);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--crimson);
+  color: var(--crimson);
+}
+
+.btn-outline:hover {
+  background-color: var(--crimson);
+  color: var(--cream-white);
+}
+
+/* ==========================================================================
+   SHOP PAGE
+   ========================================================================== */
+
+.video-card {
+  background-color: var(--card);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+}
+
+.video-card video {
+  margin: 0 auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--tan);
+}
+
+.campaign-banner {
+  background-color: var(--cream-white);
+  border: 1px solid var(--tan);
+  border-radius: var(--radius);
+  padding: 1.8rem 1.5rem;
+  text-align: center;
+  position: relative;
+}
+
+.campaign-banner img {
+  margin: 0.8rem auto;
+  border-radius: var(--radius);
+  transition: transform 0.3s ease;
+}
+
+.campaign-banner img:hover {
+  transform: scale(1.03);
+}
+
+.campaign-banner h3 {
+  color: var(--crimson);
+}
+
+/* Product grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.product-card {
+  background-color: var(--cream-white);
+  border: 1px solid var(--tan);
+  border-radius: var(--radius);
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lift);
+  border-color: var(--crimson);
+}
+
+.product-card img {
+  border-radius: var(--radius);
+  margin-bottom: 0.7rem;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.product-card p {
+  color: var(--espresso);
+  margin-bottom: 0;
+  font-size: 0.95rem;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--cream-white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+thead {
+  background-color: var(--espresso);
+}
+
+th {
+  color: var(--cream-white);
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-align: left;
+  padding: 0.9rem 1rem;
+}
+
+td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--card);
+  color: var(--brown);
+}
+
+tbody tr:hover {
+  background-color: var(--card);
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ==========================================================================
+   ORDER / FORM PAGE
+   ========================================================================== */
+
+.form-card {
+  background-color: var(--cream-white);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow-soft);
+  border-top: 6px solid var(--crimson);
+}
+
+fieldset {
+  border: 1px solid var(--tan);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.5rem 1.6rem;
+  margin-bottom: 1.5rem;
+}
+
+legend {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--crimson);
+  padding: 0 0.5rem;
+  font-size: 1.05rem;
+}
+
+label {
+  display: block;
+  font-weight: 500;
+  color: var(--espresso);
+  margin-bottom: 0.35rem;
+  margin-top: 0.9rem;
+  font-size: 0.92rem;
+}
+
+fieldset > label:first-of-type {
+  margin-top: 0;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 0.97rem;
+  color: var(--espresso);
+  background-color: var(--cream);
+  border: 1px solid var(--tan);
+  border-radius: var(--radius);
+  padding: 0.65rem 0.8rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--crimson);
+  box-shadow: 0 0 0 3px rgba(168, 52, 31, 0.15);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+/* Radio group styling */
+fieldset p {
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+  color: var(--brown);
+  font-size: 0.92rem;
+}
+
+input[type="radio"] {
+  accent-color: var(--crimson);
+  margin-right: 0.5rem;
+  transform: scale(1.1);
+}
+
+fieldset label[for="orig"],
+fieldset label[for="redvariant"] {
+  display: inline;
+  font-weight: 400;
+  margin-top: 0;
+}
+
+form > input[type="submit"] {
+  margin-top: 0.5rem;
+}
+
+address {
+  background-color: var(--card);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.5rem;
+  font-style: normal;
+  color: var(--brown);
+  border-left: 4px solid var(--crimson);
+}
+
+/* ==========================================================================
+   GALLERY PAGE — Flip Cards
+   ========================================================================== */
+
+.gallery-intro {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 2.5rem;
+}
+
+.flip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 2rem;
+}
+
+.flip-card {
+  perspective: 1200px;
+  height: 280px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card:focus-within .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.flip-card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.flip-card-front .flip-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, transparent, rgba(58,46,34,0.85));
+  color: var(--cream-white);
+  padding: 1.6rem 1rem 0.7rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  text-align: center;
+}
+
+.flip-card-back {
+  background-color: var(--espresso);
+  color: var(--cream-white);
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
+  border: 2px solid var(--crimson);
+}
+
+.flip-card-back h4 {
+  font-family: var(--font-display);
+  color: var(--cream-white);
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.flip-card-back p {
+  color: var(--tan);
+  font-size: 0.88rem;
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+@media (max-width: 700px) {
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.4rem; }
+
+  nav {
+    gap: 0.3rem 1rem;
+    padding: 0.8rem 1rem;
+  }
+
+  main {
+    padding: 1.8rem 1rem 3rem;
+  }
+
+  .form-card {
+    padding: 1.3rem;
+  }
+
+  .flip-card {
+    height: 240px;
+  }
+}
+
+@media (max-width: 420px) {
+  nav a {
+    font-size: 0.82rem;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* ==========================================================================
+   JAVASCRIPT-DRIVEN STYLES  (main.js additions)
+   ========================================================================== */
+
+/* ---------- 1. Welcome Banner ---------- */
+
+#welcome-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background-color: var(--espresso);
+  color: var(--cream-white);
+  border-left: 5px solid var(--crimson);
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
+  margin-bottom: 2rem;
+  font-size: 0.97rem;
+  animation: slideDown 0.4s ease;
+}
+
+#welcome-banner strong {
+  color: var(--cream);
+}
+
+.welcome-wave {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.welcome-dismiss {
+  margin-left: auto;
+  background: none;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: var(--tan);
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  line-height: 1;
+  flex-shrink: 0;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.welcome-dismiss:hover {
+  background-color: var(--crimson);
+  color: var(--cream-white);
+  border-color: var(--crimson);
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- 2. Form Validation ---------- */
+
+.input-error {
+  border-color: #c0392b !important;
+  box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.18) !important;
+}
+
+.field-error {
+  color: #c0392b;
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.3rem;
+}
+
+/* Fieldset-level error (for radio group) */
+fieldset.input-error {
+  border-color: #c0392b !important;
+}
+
+/* ---------- Confirmation Card ---------- */
+
+#confirmation-card {
+  background-color: var(--cream-white);
+  border-top: 6px solid #2e7d32;
+  border-radius: var(--radius);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  box-shadow: var(--shadow-lift);
+  animation: slideDown 0.45s ease;
+}
+
+.confirm-icon {
+  font-size: 3rem;
+  margin-bottom: 0.8rem;
+}
+
+#confirmation-card h2 {
+  margin-bottom: 0.8rem;
+}
+
+#confirmation-card p {
+  max-width: 480px;
+  margin: 0 auto 0.7rem;
+}
+
+#confirmation-card .btn {
+  margin-top: 1.2rem;
+}
+
+/* ---------- 3. Size Guide ---------- */
+
+#size-guide-btn {
+  display: inline-block;
+  background: none;
+  border: 1px solid var(--tan);
+  border-radius: var(--radius);
+  color: var(--crimson);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.45rem 1rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+#size-guide-btn:hover {
+  background-color: var(--card);
+  border-color: var(--crimson);
+}
+
+#size-guide-panel {
+  overflow: hidden;
+  transition: max-height 0.35s ease, opacity 0.3s ease;
+  max-height: 500px;
+  opacity: 1;
+}
+
+#size-guide-panel.sg-hidden {
+  max-height: 0;
+  opacity: 0;
+}
+
+#size-guide-panel table {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+#size-guide-panel th {
+  font-size: 0.85rem;
+  padding: 0.6rem 0.8rem;
+}
+
+#size-guide-panel td {
+  padding: 0.55rem 0.8rem;
+  text-align: center;
+}
+
+/* ---------- 4. Product Card Selector ---------- */
+
+.card-selected {
+  border-color: var(--crimson) !important;
+  box-shadow: 0 0 0 3px rgba(168, 52, 31, 0.25), var(--shadow-lift) !important;
+  transform: translateY(-8px) !important;
+}
+
+.selected-badge {
+  display: inline-block;
+  background-color: var(--crimson);
+  color: var(--cream-white);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 20px;
+  margin-top: 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+#pick-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  background-color: var(--espresso);
+  color: var(--cream-white);
+  border-radius: var(--radius);
+  padding: 1rem 1.5rem;
+  margin-bottom: 2.5rem;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s ease;
+}
+
+#pick-icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+#pick-text {
+  flex: 1;
+  font-size: 0.97rem;
+  color: var(--tan);
+}
+
+#pick-text strong {
+  color: var(--cream-white);
+}
+
+#pick-cta {
+  font-size: 0.88rem;
+  padding: 0.55rem 1.2rem;
+}
+
+/* ---------- 5. Dark Mode ---------- */
+
+body.dark-mode {
+  --cream:        #1A1614;
+  --cream-white:  #231F1C;
+  --card:         #2C2723;
+  --espresso:     #F2EBE0;
+  --brown:        #C4B8A8;
+  --tan:          #8A7A6A;
+}
+
+body.dark-mode header {
+  background: linear-gradient(180deg, #0D0B09 0%, #141210 100%);
+}
+
+body.dark-mode nav {
+  background-color: #0D0B09;
+}
+
+body.dark-mode footer {
+  background-color: #0D0B09;
+}
+
+body.dark-mode .hero-spotlight,
+body.dark-mode .campaign-banner,
+body.dark-mode .video-card,
+body.dark-mode .form-card,
+body.dark-mode .flip-card-back,
+body.dark-mode table {
+  background-color: var(--cream-white);
+}
+
+body.dark-mode th {
+  background-color: #0D0B09;
+  color: var(--cream);
+}
+
+body.dark-mode thead {
+  background-color: #0D0B09;
+}
+
+body.dark-mode #welcome-banner {
+  background-color: #0D0B09;
+}
+
+body.dark-mode #confirmation-card {
+  background-color: var(--cream-white);
+}
+
+body.dark-mode .product-card,
+body.dark-mode .collections-list li {
+  background-color: var(--card);
+}
+
+/* Dark mode toggle button (in footer) */
+#dark-mode-toggle {
+  display: block;
+  margin: 1rem auto 0;
+  background: none;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: var(--tan);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+}
+
+#dark-mode-toggle:hover {
+  border-color: var(--crimson);
+  color: var(--cream-white);
+  background-color: rgba(168, 52, 31, 0.15);
+}

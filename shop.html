@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Collection | Wonder Walks</title>
+    <link rel="stylesheet" href="csslab.css">
+</head>
+<body>
+    <header>
+        <h1>The Wonder Walks Catalog</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="shop.html">Browse Collection</a>
+            <a href="order.html">Reserve a Pair</a>
+            <a href="gallery.html">Gallery</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Iconic Silhouettes In-Stock</h2>
+        <p>Click any shoe card below to select your pick — then hit "Reserve This Pair" to lock it in.</p>
+
+        <!-- Showcase Video Section -->
+        <section class="video-card">
+            <h3>Boots In Action</h3>
+            <video width="360" controls poster="wallabe/1.png">
+                <source src="boots.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+
+        <!-- Red Edition Hero Accent -->
+        <section class="campaign-banner">
+            <h3>Exclusive Release: The Crimson Variant</h3>
+            <img src="wallabe/red.png" alt="Clarks Wallabee Red Edition" width="300">
+            <p>Our premium limited colorway variation is down to its last pairs. Check availability below.</p>
+            <a href="order.html" class="btn">Check Availability</a>
+        </section>
+
+        <h3>The Wallabee Archive Grid</h3>
+        <!-- JS adds .card-selected, .selected-badge, and the #pick-bar after this div -->
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="wallabe/1.png" alt="Wallabee Model 1">
+                <p><strong>Wallabee Tan Classic</strong></p>
+            </div>
+            <div class="product-card">
+                <img src="wallabe/2.jpeg" alt="Wallabee Model 2">
+                <p><strong>Wallabee Maple Suede</strong></p>
+            </div>
+            <div class="product-card">
+                <img src="wallabe/3.jpeg" alt="Wallabee Model 3">
+                <p><strong>Wallabee Deep Black</strong></p>
+            </div>
+            <div class="product-card">
+                <img src="wallabe/4.jpeg" alt="Wallabee Model 4">
+                <p><strong>Wallabee Cola Coating</strong></p>
+            </div>
+            <div class="product-card">
+                <img src="wallabe/5.jpeg" alt="Wallabee Model 5">
+                <p><strong>Wallabee Sage Tint</strong></p>
+            </div>
+            <div class="product-card">
+                <img src="wallabe/6.jpeg" alt="Wallabee Model 6">
+                <p><strong>Wallabee Navy Blue</strong></p>
+            </div>
+            <div class="product-card">
+                <img src="wallabe/7.jpeg" alt="Wallabee Model 7">
+                <p><strong>Wallabee Off-White Crepe</strong></p>
+            </div>
+        </div>
+
+        <h2>Fit and Function Breakdown</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Shoe Model</th>
+                    <th>Primary Material</th>
+                    <th>Sole Type</th>
+                    <th>Best Used For</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Wallabee Classic</td>
+                    <td>Premium Suede / Leather</td>
+                    <td>Natural Crepe</td>
+                    <td>Smart Casual / Daily Wear</td>
+                </tr>
+                <tr>
+                    <td>Desert Boot</td>
+                    <td>Chukka Suede</td>
+                    <td>Stitchdown Crepe</td>
+                    <td>Versatile Dress Up or Down</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <p><a href="index.html">Return to Home</a></p>
+        <!-- JS appends dark mode toggle button here -->
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
